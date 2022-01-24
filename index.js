@@ -1,7 +1,9 @@
 let currentTimer = null;
 
+const getRandomColor = () => Math.floor(Math.random() * 16777215).toString(16);
+
 const mouseoverHandler = (event) => {
-  event.target.style.backgroundColor = `#${Math.floor(Math.random() * 10000)}`;
+  event.target.style.backgroundColor = `#${getRandomColor()}`;
 
   currentTimer = setTimeout(() => {
     event.target.removeEventListener('mouseover', mouseoverHandler);
@@ -27,7 +29,6 @@ const drawContainer = (containerSize, childSize, numberOfChildren, divId) => {
   }
 
   const container = document.getElementById(divId);
-  // TODO: This border is just for development purposes. Remove after
   container.style.height = `${containerSize}px`;
   container.style.width = `${containerSize}px`;
   container.style.display = 'flex';
@@ -42,11 +43,9 @@ const drawContainer = (containerSize, childSize, numberOfChildren, divId) => {
 
   for (let i = 0; i < minimunNumberOfChildren; i++) {
     const child = document.createElement('div');
-    child.innerText = i + 1;
     child.style.width = `${childSize}px`;
     child.style.height = `${childSize}px`;
-    // TODO: use HEX code
-    child.style.backgroundColor = `#${Math.floor(Math.random() * 10000)}`;
+    child.style.backgroundColor = `#${getRandomColor()}`;
     child.addEventListener('mouseover', mouseoverHandler);
     child.addEventListener('mouseout', mouseoutHandler);
     container.appendChild(child);
