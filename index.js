@@ -4,6 +4,15 @@ const drawContainer = (containerSize, childSize, numberOfChildren, divId) => {
   container.style.border = '1px solid';
   container.style.height = `${containerSize}px`;
   container.style.width = `${containerSize}px`;
+
+  const childrenPerSide = Math.floor(containerSize / childSize);
+  const minimunNumberOfChildren = Math.min(childrenPerSide, numberOfChildren);
+
+  for (let i = 0; i < minimunNumberOfChildren; i++) {
+    const child = document.createElement('div');
+    child.innerText = i + 1;
+    container.appendChild(child)
+  }
 };
 
 drawContainer(200, 50, 17, 'mainSquare');

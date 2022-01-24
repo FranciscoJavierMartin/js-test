@@ -27,8 +27,8 @@ Using plain vanilla javascript to create square div containerSize \* containerSi
 
 - Create container
 - Add elements
-- Add height
-- Add width
+- Add height to child
+- Add width to child
 - Add random background color
 - Place elements (flex and flex-wrap)
 - Add listerner for hover
