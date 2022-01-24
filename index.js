@@ -4,8 +4,9 @@ const mouseoverHandler = (event) => {
   event.target.style.backgroundColor = `#${Math.floor(Math.random() * 10000)}`;
 
   currentTimer = setTimeout(() => {
-    console.log('Timeout');
-  }, 1500);
+    event.target.removeEventListener('mouseover', mouseoverHandler);
+    event.target.removeEventListener('mouseout', mouseoutHandler);
+  }, 2000);
 };
 
 const mouseoutHandler = (event) => {
