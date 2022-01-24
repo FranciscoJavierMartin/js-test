@@ -1,5 +1,16 @@
-const hoverFunction = () => {
-  console.log('Hover');
+let currentTimer = null;
+
+const mouseoverHandler = (event) => {
+  event.target.style.backgroundColor = `#${Math.floor(Math.random() * 10000)}`;
+
+  currentTimer = setTimeout(() => {
+    console.log('Timeout');
+  }, 1500);
+};
+
+const mouseoutHandler = (event) => {
+  clearTimeout(currentTimer);
+  currentTimer = null;
 };
 
 const drawContainer = (containerSize, childSize, numberOfChildren, divId) => {
@@ -24,11 +35,8 @@ const drawContainer = (containerSize, childSize, numberOfChildren, divId) => {
     child.style.height = `${childSize}px`;
     // TODO: use HEX code
     child.style.backgroundColor = `#${Math.floor(Math.random() * 10000)}`;
-    child.addEventListener('mouseover', (event) => {
-      event.target.style.backgroundColor = `#${Math.floor(
-        Math.random() * 10000
-      )}`;
-    });
+    child.addEventListener('mouseover', mouseoverHandler);
+    child.addEventListener('mouseout', mouseoutHandler);
     container.appendChild(child);
   }
 };
