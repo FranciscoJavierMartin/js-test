@@ -1,9 +1,19 @@
 let currentTimer = null;
 
-const getRandomColor = () => Math.floor(Math.random() * 16777215).toString(16);
+/**
+ * Get a random color in HEX format
+ * @returns {string} Color in HEX format.
+ */
+const getRandomColor = () =>
+  `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 
+/**
+ * Handle the mouseover event. Change the background color and setup a timeout
+ * to remove the square
+ * @param {Object} event Event from mouseover
+ */
 const mouseoverHandler = (event) => {
-  event.target.style.backgroundColor = `#${getRandomColor()}`;
+  event.target.style.backgroundColor = `${getRandomColor()}`;
 
   currentTimer = setTimeout(() => {
     event.target.removeEventListener('mouseover', mouseoverHandler);
@@ -12,6 +22,9 @@ const mouseoverHandler = (event) => {
   }, 2000);
 };
 
+/**
+ * Handle the mouseout event. Clear the timeout before is called.
+ */
 const mouseoutHandler = () => {
   if (currentTimer) {
     clearTimeout(currentTimer);
@@ -19,7 +32,13 @@ const mouseoutHandler = () => {
   }
 };
 
-const drawContainer = (containerSize, childSize, numberOfChildren, divId) => {
+/**
+ * Draw a big square and its children as little squares.
+ * @param {Number} containerSize container side measure in pixels. Must be an integer.
+ * @param {Number} childSize child side measure in pixels. Must be an integer.
+ * @param {Number} numberOfChildren number of children that contains at maximun. Must be an integer.
+ */
+const drawContainer = (containerSize, childSize, numberOfChildren) => {
   if (!Number.isInteger(containerSize) || containerSize <= 0) {
     throw `containerSize params is not valid. Current value is ${containerSize}`;
   } else if (!Number.isInteger(childSize) || childSize <= 0) {
@@ -28,7 +47,7 @@ const drawContainer = (containerSize, childSize, numberOfChildren, divId) => {
     throw `containerSize params is not valid. Current value is ${containerSize}`;
   }
 
-  const container = document.getElementById(divId);
+  const container = document.getElementById('mainSquare');
   container.style.height = `${containerSize}px`;
   container.style.width = `${containerSize}px`;
   container.style.display = 'flex';
@@ -45,14 +64,14 @@ const drawContainer = (containerSize, childSize, numberOfChildren, divId) => {
     const child = document.createElement('div');
     child.style.width = `${childSize}px`;
     child.style.height = `${childSize}px`;
-    child.style.backgroundColor = `#${getRandomColor()}`;
+    child.style.backgroundColor = `${getRandomColor()}`;
     child.addEventListener('mouseover', mouseoverHandler);
     child.addEventListener('mouseout', mouseoutHandler);
     container.appendChild(child);
   }
 };
 
-drawContainer(200, 50, 17, 'mainSquare');
-drawContainer(310, 200, 4, 'secondSquare');
-drawContainer(413, 42, 30, 'thirdSquare');
-drawContainer(200, 300, 2, 'fourthSquare');
+drawContainer(200, 50, 17);
+// drawContainer(310, 200, 4);
+// drawContainer(413, 42, 30);
+// drawContainer(200, 300, 2);
