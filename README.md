@@ -26,11 +26,13 @@ Using plain vanilla javascript to create square div containerSize \* containerSi
 ![Squares](result.jpg)
 
 # Some considerations
+- You can visualize the result at https://franciscojaviermartin.github.io/js-test/
 - I develop using Chrome in a Mac. I tested in Chrome, Firefox and Safari.
 - During the testing in Safari. I catch a bug. When you hover a little square, this dissappear, the next little square is placed in its position, triggering hover again (without moving the mouse). I the rest of browsers, the squares start to disappear one after one. In Safari this never happens. In real scenario, I will ask if this is acceptable considering the user rate of Safari and the ammount of time used in solve something for a specific browser.
 - In real scenario, I will setup some testing tools, linters and formatters. Here I only use visual testing and the extensions installed in VSCode.
 - I usually use responsive design for development. Here is not applied.
 - I assume that when a child vanish, if there more room for children that were out, those will still be out (it is not specified).
+- The use of a single variable to store the timeout reference abuses of the fact that JavaScript is single thread and you cannot hover two different squares at the same time.
 
 ## Steps followed
 - Create container
