@@ -6,6 +6,7 @@ const mouseoverHandler = (event) => {
   currentTimer = setTimeout(() => {
     event.target.removeEventListener('mouseover', mouseoverHandler);
     event.target.removeEventListener('mouseout', mouseoutHandler);
+    event.target.parentElement.removeChild(event.target);
   }, 2000);
 };
 
