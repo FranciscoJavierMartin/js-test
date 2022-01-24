@@ -24,7 +24,11 @@ const drawContainer = (containerSize, childSize, numberOfChildren, divId) => {
     child.style.height = `${childSize}px`;
     // TODO: use HEX code
     child.style.backgroundColor = `#${Math.floor(Math.random() * 10000)}`;
-    child.addEventListener('hover', hoverFunction);
+    child.addEventListener('mouseover', (event) => {
+      event.target.style.backgroundColor = `#${Math.floor(
+        Math.random() * 10000
+      )}`;
+    });
     container.appendChild(child);
   }
 };
