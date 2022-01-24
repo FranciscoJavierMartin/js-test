@@ -13,6 +13,7 @@ const drawContainer = (containerSize, childSize, numberOfChildren, divId) => {
     child.innerText = i + 1;
     child.style.width = `${childSize}px`;
     child.style.height = `${childSize}px`;
+    child.style.backgroundColor = `#${Math.floor(Math.random() * 10000)}`;
     container.appendChild(child);
   }
 };
