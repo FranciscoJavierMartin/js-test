@@ -10,7 +10,7 @@ const mouseoverHandler = (event) => {
   }, 2000);
 };
 
-const mouseoutHandler = (event) => {
+const mouseoutHandler = () => {
   if (currentTimer) {
     clearTimeout(currentTimer);
     currentTimer = null;
@@ -28,7 +28,6 @@ const drawContainer = (containerSize, childSize, numberOfChildren, divId) => {
 
   const container = document.getElementById(divId);
   // TODO: This border is just for development purposes. Remove after
-  container.style.border = '1px solid';
   container.style.height = `${containerSize}px`;
   container.style.width = `${containerSize}px`;
   container.style.display = 'flex';
