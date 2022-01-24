@@ -37,3 +37,4 @@ Using plain vanilla javascript to create square div containerSize \* containerSi
 - Remove child when 2 seconds pass
 - Add more childrens if there are available
 - Error handling
+- Fix the gap in height
