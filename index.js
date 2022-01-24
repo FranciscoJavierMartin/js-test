@@ -33,6 +33,7 @@ const drawContainer = (containerSize, childSize, numberOfChildren, divId) => {
   container.style.width = `${containerSize}px`;
   container.style.display = 'flex';
   container.style.flexWrap = 'wrap';
+  container.style.alignContent = 'flex-start';
 
   const childrenPerSide = Math.floor(containerSize / childSize);
   const minimunNumberOfChildren = Math.min(
