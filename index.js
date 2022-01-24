@@ -11,7 +11,9 @@ const drawContainer = (containerSize, childSize, numberOfChildren, divId) => {
   for (let i = 0; i < minimunNumberOfChildren; i++) {
     const child = document.createElement('div');
     child.innerText = i + 1;
-    container.appendChild(child)
+    child.style.width = `${childSize}px`;
+    child.style.height = `${childSize}px`;
+    container.appendChild(child);
   }
 };
 
