@@ -38,4 +38,6 @@ Using plain vanilla javascript to create square div containerSize \* containerSi
 - Add more childrens if there are available
 - Error handling
 - Fix the gap in height
+- Clean code
+- Check compatibility
 - Documentation

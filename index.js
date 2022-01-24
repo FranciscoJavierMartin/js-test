@@ -11,11 +11,21 @@ const mouseoverHandler = (event) => {
 };
 
 const mouseoutHandler = (event) => {
-  clearTimeout(currentTimer);
-  currentTimer = null;
+  if (currentTimer) {
+    clearTimeout(currentTimer);
+    currentTimer = null;
+  }
 };
 
 const drawContainer = (containerSize, childSize, numberOfChildren, divId) => {
+  if (!Number.isInteger(containerSize) || containerSize <= 0) {
+    throw `containerSize params is not valid. Current value is ${containerSize}`;
+  } else if (!Number.isInteger(childSize) || childSize <= 0) {
+    throw `containerSize params is not valid. Current value is ${containerSize}`;
+  } else if (!Number.isInteger(numberOfChildren) || numberOfChildren < 0) {
+    throw `containerSize params is not valid. Current value is ${containerSize}`;
+  }
+
   const container = document.getElementById(divId);
   // TODO: This border is just for development purposes. Remove after
   container.style.border = '1px solid';
